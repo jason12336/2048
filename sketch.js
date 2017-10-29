@@ -11,6 +11,10 @@ function setup() {
 //generates new Tile called appropriately to regulate when a new Tile is made
 function generateNewTile() {
 	var places = board.getAllPlaces();
+	if (places.length == 0) {
+		console.log("Game over");
+		return;
+	}
 	var chanceFour = random(0, 1);
 	var randomPlace = places[round(random(0, places.length - 1))];
 	randomPlace.value = (chanceFour < 0.9) ? 2 : 4;
@@ -35,6 +39,7 @@ function keyPressed() {
 	if (keyCode == UP_ARROW) {
 		makeUpMove();
 	}
+	generateNewTile();
 }
 
 
