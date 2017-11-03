@@ -35,11 +35,20 @@ function displayAllTiles() {
 function keyPressed() {
 	if (keyCode == DOWN_ARROW) {
 		makeDownMove();
+		generateNewTile(); //fix this so that it doesn't occur if nothing moves
 	}
 	if (keyCode == UP_ARROW) {
 		makeUpMove();
+		generateNewTile(); //same with this I am just not bothered right now
 	}
-	generateNewTile();
+	if (keyCode == LEFT_ARROW) {
+		makeLeftMove();
+		generateNewTile();
+	}
+	if (keyCode == RIGHT_ARROW) {
+		makeRightMove();
+		generateNewTile();
+	}
 }
 
 
